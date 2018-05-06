@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>speech_recognition</name>
+  <name>speech_synthesis</name>
   <version>0.0.0</version>
-  <description>The speech_recognition package</description>
+  <description>The speech_synthesis package</description>
 
   <maintainer email="janne.spijkervet@hotmail.com">Janne Spijkervet</maintainer>
 
