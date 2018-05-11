@@ -5,8 +5,7 @@
 See https://gitlab.com/uva-robotics/boilerplate for installation instructions.If you are running Ubuntu x64:
 ```
 sudo apt-get install python-pip python-dev
-sudo apt-get install python-gst-1.0
-sudo apt-get install python-gst-1.0-dbg
+sudo apt-get install sox libsox-fmt-all
 ```
 
 ## ROS Node
