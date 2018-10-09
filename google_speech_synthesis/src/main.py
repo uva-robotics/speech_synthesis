@@ -5,6 +5,14 @@ from std_msgs.msg import String
 import os
 from gtts import gTTS
 
+import base64
+import paramiko
+
+def listener():
+    rospy.init_node('google_speech_synthesis', anonymous=True)
+    rospy.Subscriber("speech_synthesis", String, callback)
+    rospy.spin()
+
 
 def callback(data):
     print("RECEIVED ", data.data)
@@ -15,10 +23,14 @@ def callback(data):
     os.system("clear")
     os.system("rm %s" %(testfile))
 
-def listener():
-    rospy.init_node('google_speech_synthesis', anonymous=True)
-    rospy.Subscriber("speech_synthesis", String, callback)
-    rospy.spin()
-
 if __name__ == '__main__':
-    listener()
+    # listener()
+    # key = paramiko.RSAKey(data=base64.b64decode(b'AAA...'))
+    # client = paramiko.SSHClient()
+    # client.get_host_keys().add('pepper.local', 'ssh-rsa', '')
+    client = paramiko.SSHClient()
+    client.connect('pepper.local', username='nao', password='pepper')
+    stdin, stdout, stderr = client.exec_command('ls')
+    for line in stdout:
+        print('... ' + line.strip('\n'))
+    client.close()
